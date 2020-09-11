@@ -2,12 +2,35 @@
 {% extends "base.html" %}
 {% block content %}
 
-    <h> We have very good Products</h>
-      <ul>
-        {% for product in products%}
-           <li> {{ product.name}} ({{ product.price}})</li>
-        {%endfor%}
+<style>
+ h  {
 
-      </ul>
+      color: red;
+  font-family: courier;
+  background-color: #FFEFD5;
 
+  font-size: 160%
+
+        }
+  div {
+  background-color:#FFFFE0;
+ padding: 30px
+   }
+</style>
+        <h> We have a very good products </h>
+<div class="row">
+       {% for product in products%}
+    <div class="col">
+        <div class="card" style="width: 18rem ;">
+            <img src="{{ product.image_url}}"  alt="...">
+            <div class="card-body">
+                <h5 class="card-title">{{product.name}}</h5>
+                <p class="card-text">{{product.price }} kr </p>
+                <a href="#" class="btn btn-primary">ADD TO CART</a>
+            </div>
+        </div>
+
+    </div>
+     {%endfor%}
+</div>
 {% endblock %}
